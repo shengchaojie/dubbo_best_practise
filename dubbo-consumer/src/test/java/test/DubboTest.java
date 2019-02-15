@@ -156,6 +156,10 @@ public class DubboTest {
      */
 
     /**
+     * 由于registry后 对消费者的notify回调有延迟 下面方法可能略有次数误差
+     */
+
+    /**
      * 测试修改权重
      */
     @Test
