@@ -1,4 +1,6 @@
 # dubbo_best_practise
+采用dubbo 2.7版本  
+测试案例见
 @see  DubboTest  
 @see  SPITest
 
