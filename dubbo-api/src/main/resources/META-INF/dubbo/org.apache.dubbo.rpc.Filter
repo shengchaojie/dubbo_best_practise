@@ -1,1 +1,1 @@
-exception2result=com.scj.demo.dubbo.api.ExceptionFilter
+##exception2result=com.scj.demo.dubbo.api.ExceptionFilter
