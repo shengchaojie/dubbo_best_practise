@@ -6,8 +6,12 @@ import com.scj.demo.dubbo.api.Result;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class HelloServiceImpl implements HelloService {
+
+    Executor executor = Executors.newCachedThreadPool();
 
     @Override
     public Result<String> hello(String name) {
@@ -43,6 +47,7 @@ public class HelloServiceImpl implements HelloService {
     @Override
     public CompletableFuture<Result<List<String>>> testPage2(Integer page, Integer pageSize) {
 
+        //注意这边不过不配置executor 连续的testPage2调用 会在默认线程池里面串行
         return CompletableFuture.supplyAsync(()->{
             try {
                 Thread.sleep(1000* 4);
@@ -50,6 +55,6 @@ public class HelloServiceImpl implements HelloService {
                 e.printStackTrace();
             }
             return Result.ofSuccess(Lists.newArrayList("scj","123","356"));
-        });
+        },executor);
     }
 }
