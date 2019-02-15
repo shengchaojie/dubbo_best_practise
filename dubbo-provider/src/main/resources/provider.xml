@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo
+    					http://souche.oss-cn-hangzhou.aliyuncs.com/files/dubbo/dubbo.xsd">
+
+    <dubbo:application name="test-provider" />
+
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" />
+
+    <dubbo:protocol name="dubbo" port="23333" />
+
+    <bean id ="helloService" class="com.scj.demo.dubbo.provider.service.impl.HelloServiceImpl" />
+
+    <dubbo:service  interface="com.scj.demo.dubbo.api.HelloService" ref="helloService"  weight="100" >
+        <dubbo:parameter key="warmup" value="100" />
+    </dubbo:service>
+
+
+</beans>

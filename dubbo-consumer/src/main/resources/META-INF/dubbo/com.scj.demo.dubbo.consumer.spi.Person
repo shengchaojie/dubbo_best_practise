@@ -1,0 +1,3 @@
+beauty=com.scj.demo.dubbo.consumer.spi.impl.Beauty
+coder=com.scj.demo.dubbo.consumer.spi.impl.Coder
+wrapper=com.scj.demo.dubbo.consumer.spi.impl.SuperPowerWrapper
