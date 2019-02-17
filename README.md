@@ -52,7 +52,8 @@ HeartbeatHandler netty线程 dubbo框架心跳
 Dispatcher    Dubbo IO模型 将下面的Handler放在Dubbo 业务线程执行  
 DecodeHandler codec那边没有完全反序列化 反序列化操作可以延迟到这里 dubbo业务线程  
 HeaderExchangeHandler dubbo业务线程 处理Exchanger层逻辑  
-DubboProtocol.requestHandler dubbo业务线程  执行目标对象方法
+DubboProtocol.requestHandler dubbo业务线程 
+invoker  可以是自定义线程池  执行目标对象方法  
 
 server端类似  
 
@@ -66,6 +67,7 @@ Dispatcher
 DecodeHandler  
 HeaderExchangeHandler  
 DubboProtocol.requestHandler  
+invoker  
 
 ### invoke filters
 consumer side  
