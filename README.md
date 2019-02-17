@@ -4,6 +4,29 @@
 @see  DubboTest  
 @see  SPITest
 
+## SPI FrameWork
+ExtensionLoader
+
+## config load and trigger init 
+DubboNamespaceHandler
+
+## service export
+ServiceBean
+RegistryProtocol
+DubboProtocol
+
+
+## service refer
+
+## service invoke
+
+## invoke filters
+consumer side
+
+
+
+provider side
+
 ## Dubbo Netty Handler
 client  
 
@@ -18,15 +41,15 @@ DecodeHandler codec那边没有完全反序列化 反序列化操作可以延迟
 HeaderExchangeHandler dubbo业务线程 处理Exchanger层逻辑  
 dubboProtocol.requestHandler dubbo业务线程   
 
-server段类似
+server段类似  
 
-codecHandler
-IdleStateHandler
-NettyServerHandler
+codecHandler  
+IdleStateHandler  
+NettyServerHandler  
 
-MultiMessageHandler
-HeartbeatHandler
-Dispatcher
-DecodeHandler
-HeaderExchangeHandler
-dubboProtocol.requestHandler
+MultiMessageHandler  
+HeartbeatHandler  
+Dispatcher  
+DecodeHandler  
+HeaderExchangeHandler  
+dubboProtocol.requestHandler  
