@@ -154,6 +154,12 @@ public class DubboTest {
     }
 
     /**
+     * 直连测试
+     * telnet ip:23333
+     * invoke com.scj.demo.dubbo.api.HelloService.hello("123")
+     */
+
+    /**
      *  下面测试服务治理功能
      *  先通过 mvn clean package -DskipTests 构造出dubbodemo.jar
      *  cd dubbo-provider/target

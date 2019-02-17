@@ -9,9 +9,10 @@
 
     <dubbo:registry address="zookeeper://127.0.0.1:2181" />
 
-    <dubbo:protocol name="dubbo" port="23333" />
+    <dubbo:protocol name="dubbo" port="23333"/>
 
     <bean id ="helloService" class="com.scj.demo.dubbo.provider.service.impl.HelloServiceImpl" />
+
 
     <dubbo:service  interface="com.scj.demo.dubbo.api.HelloService" ref="helloService"  weight="100" >
         <dubbo:parameter key="warmup" value="100" />
