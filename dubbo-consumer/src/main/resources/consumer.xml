@@ -13,5 +13,5 @@
         <dubbo:method name="hello" loadbalance="roundrobin" />
     </dubbo:reference>
 
-    <dubbo:reference id="registryService" interface="org.apache.dubbo.registry.RegistryService" />
+    <dubbo:reference id="registryService" interface="org.apache.dubbo.registry.RegistryService"/>
 </beans>

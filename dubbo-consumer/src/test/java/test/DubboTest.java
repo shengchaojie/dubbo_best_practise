@@ -73,6 +73,9 @@ public class DubboTest {
          */
         String overrideUrl ="override://0.0.0.0/com.scj.demo.dubbo.api.HelloService?category=configurators&methods=exception&dynamic=true&mock=force:return {'data':'scj123'}";
         registryService.register(URL.valueOf(overrideUrl));
+
+        Thread.sleep(5000);
+
         Assert.assertEquals("scj123",helloService.exception("1234").getData());
 
     }
@@ -166,13 +169,15 @@ public class DubboTest {
      * 测试修改权重
      */
     @Test
-    public void testOverrideWeight(){
+    public void testOverrideWeight() throws InterruptedException {
 
         String overrideUrl ="override://0.0.0.0:23333/com.scj.demo.dubbo.api.HelloService?category=configurators&dynamic=true&weight=300";
         registryService.register(URL.valueOf(overrideUrl));
 
         String overrideUrl2 ="override://0.0.0.0:23334/com.scj.demo.dubbo.api.HelloService?category=configurators&dynamic=true&weight=200";
         registryService.register(URL.valueOf(overrideUrl2));
+
+        Thread.sleep(5000);
 
         HashMap<Integer,Integer> statistics = new HashMap<>();
         for(int i =0;i<10;i++){
@@ -201,6 +206,8 @@ public class DubboTest {
     public void testOverrideDisable() throws InterruptedException {
         String overrideUrl ="override://0.0.0.0:23333/com.scj.demo.dubbo.api.HelloService?category=configurators&dynamic=true&disabled=true";
         registryService.register(URL.valueOf(overrideUrl));
+
+        Thread.sleep(5000);
 
         HashMap<Integer,Integer> statistics = new HashMap<>();
         for(int i =0;i<10;i++){
