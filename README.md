@@ -13,7 +13,7 @@ DubboNamespaceHandler
 ServiceBean  
 ReferenceBean  
 
-## service export core class
+## service export 
 ProxyFactory  
 ServiceBean  
 RegistryProtocol   
