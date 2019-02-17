@@ -4,7 +4,7 @@
 @see  DubboTest  
 @see  SPITest
 
-#core class
+# core class
 ## SPI FrameWork core 
 ExtensionLoader
 
@@ -54,7 +54,7 @@ DecodeHandler codec那边没有完全反序列化 反序列化操作可以延迟
 HeaderExchangeHandler dubbo业务线程 处理Exchanger层逻辑  
 DubboProtocol.requestHandler dubbo业务线程  执行目标对象方法
 
-server段类似  
+server端类似  
 
 codecHandler  
 IdleStateHandler  
@@ -68,7 +68,8 @@ HeaderExchangeHandler
 DubboProtocol.requestHandler  
 
 ### invoke filters
-consumer side
+consumer side  
+
 org.apache.dubbo.rpc.filter.ConsumerContextFilter  
 org.apache.dubbo.rpc.protocol.dubbo.filter.FutureFilter  
 org.apache.dubbo.monitor.support.MonitorFilter  
