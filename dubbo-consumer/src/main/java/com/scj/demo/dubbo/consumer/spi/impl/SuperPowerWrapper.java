@@ -3,6 +3,9 @@ package com.scj.demo.dubbo.consumer.spi.impl;
 import com.scj.demo.dubbo.consumer.spi.Person;
 import org.apache.dubbo.common.URL;
 
+/**
+ * 扩展点自动包装
+ */
 public class SuperPowerWrapper implements Person {
 
     private Person person;

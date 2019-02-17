@@ -14,6 +14,7 @@ public class Beauty implements Person {
 
     @Override
     public void day(URL url) {
+        //扩展点自动激活
         List<Pet> pets = ExtensionLoader.getExtensionLoader(Pet.class).getActivateExtension(url,"fish","cat");
         pets.stream().forEach((a)->a.day(url));
         System.out.println("铲屎");
