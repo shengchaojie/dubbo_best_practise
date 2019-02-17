@@ -2,10 +2,13 @@ package test;
 
 import com.google.common.collect.Lists;
 import com.scj.demo.dubbo.api.HelloService;
+import org.apache.dubbo.common.Constants;
 import org.apache.dubbo.common.URL;
+import org.apache.dubbo.common.extension.ExtensionLoader;
 import org.apache.dubbo.common.json.JSON;
 import org.apache.dubbo.registry.NotifyListener;
 import org.apache.dubbo.registry.RegistryService;
+import org.apache.dubbo.rpc.Filter;
 import org.apache.dubbo.rpc.RpcContext;
 import org.junit.Assert;
 import org.junit.Test;
@@ -239,5 +242,19 @@ public class DubboTest {
         }
         Assert.assertEquals(statistics.get(23334),Integer.valueOf(10));
 
+    }
+
+    @Test
+    public void getFilterChain(){
+        System.out.println("provider");
+        List<Filter> providerFilter = ExtensionLoader.getExtensionLoader(Filter.class).getActivateExtension(URL.valueOf("dubbo:0.0.0.0:2181"), "", Constants.PROVIDER);
+        providerFilter.stream().forEach(a->{
+            System.out.println(a.getClass().getCanonicalName());
+        });
+        System.out.println("consumer");
+        List<Filter> consumerFilter = ExtensionLoader.getExtensionLoader(Filter.class).getActivateExtension(URL.valueOf("dubbo:0.0.0.0:2181"), "", Constants.CONSUMER);
+        consumerFilter.stream().forEach(a->{
+            System.out.println(a.getClass().getCanonicalName());
+        });
     }
 }

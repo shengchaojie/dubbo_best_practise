@@ -12,9 +12,9 @@ public class SPITest {
         World world = ExtensionLoader.getExtensionLoader(World.class).getDefaultExtension();
         world.day(URL.valueOf("test://0.0.0.0:8888?person=coder"));
         System.out.println();
-        world.day(URL.valueOf("test://0.0.0.0:8888?person=beauty&fish=jinlongyu"));
+        world.day(URL.valueOf("test://0.0.0.0:8888?person=beauty&fish=金龙鱼"));
         System.out.println();
-        world.day(URL.valueOf("test://0.0.0.0:8888?person=beauty&fish=jinmao"));
+        world.day(URL.valueOf("test://0.0.0.0:8888?person=beauty&fish=erha"));
     }
 
 

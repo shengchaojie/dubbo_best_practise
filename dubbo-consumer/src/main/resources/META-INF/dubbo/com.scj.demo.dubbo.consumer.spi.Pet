@@ -1,5 +1,5 @@
 erha=com.scj.demo.dubbo.consumer.spi.impl.pets.ErHa
-jinlongyu=com.scj.demo.dubbo.consumer.spi.impl.pets.JinLongYu
+金龙鱼=com.scj.demo.dubbo.consumer.spi.impl.pets.JinLongYu
 jinmao=com.scj.demo.dubbo.consumer.spi.impl.pets.JinMao
 yinduan=com.scj.demo.dubbo.consumer.spi.impl.pets.YinDuan
 zheer=com.scj.demo.dubbo.consumer.spi.impl.pets.ZheEr
