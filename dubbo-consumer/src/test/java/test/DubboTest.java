@@ -38,6 +38,10 @@ public class DubboTest {
      * 使用ide开启第一个provider 端口为23333
      */
 
+    @Test
+    public void testNormal(){
+        helloService.hello("123");
+    }
 
     /**
      * 测试异常filter
@@ -140,7 +144,7 @@ public class DubboTest {
      * 如果目录下为空 会通知一个empty的url
      */
     @Test
-    public void testRegistryService(){
+    public void testRegistryService() throws InterruptedException {
         registryService.subscribe(URL.valueOf("dubbo://172.17.8.49:21111/com.scj.demo.dubbo.api.HelloService?category=configurators,providers,routers"), new NotifyListener() {
             @Override
             public void notify(List<URL> urls) {
@@ -151,6 +155,8 @@ public class DubboTest {
 
         String overrideUrl ="override://0.0.0.0/com.scj.demo.dubbo.api.HelloService?category=configurators&methods=exception&dynamic=true&mock=force:return {'data':'scj123'}";
         registryService.register(URL.valueOf(overrideUrl));
+
+        Thread.sleep(5000);
     }
 
     /**
@@ -236,9 +242,11 @@ public class DubboTest {
      * 测试通过路由 是消费者只能访问到23334的服务
      */
     @Test
-    public void testRouter(){
-        String routerUrl = "condition://0.0.0.0/com.scj.demo.dubbo.api.HelloService?category=routers&dynamic=true&rule="+URL.encode("=> port = 23334");
+    public void testRouter() throws InterruptedException {
+        String routerUrl = "condition://0.0.0.0/com.scj.demo.dubbo.api.HelloService?category=routers&dynamic=true&rule="+URL.encode("=> port != 23334");
         registryService.register(URL.valueOf(routerUrl));
+
+        Thread.sleep(5000);
 
         HashMap<Integer,Integer> statistics = new HashMap<>();
         for(int i =0;i<10;i++){

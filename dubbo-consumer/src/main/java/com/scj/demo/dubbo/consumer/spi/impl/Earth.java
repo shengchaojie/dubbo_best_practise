@@ -8,6 +8,8 @@ import org.apache.dubbo.common.URL;
 @Data
 public class Earth implements World {
 
+    //扩展点自动注入
+    //并且注入的为扩展点适配类
     private Person person;
 
     @Override
