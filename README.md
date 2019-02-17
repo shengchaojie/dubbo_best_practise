@@ -5,10 +5,10 @@
 @see  SPITest
 
 # core class
-## SPI FrameWork core 
+## SPI FrameWork  
 ExtensionLoader
 
-## config load and trigger init  
+## config load and init  
 DubboNamespaceHandler  
 ServiceBean  
 ReferenceBean  
