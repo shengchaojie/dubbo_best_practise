@@ -69,7 +69,7 @@ DecodeHandler  decode
 HeaderExchangeHandler->handleResponse 如果是Response调用DefaultFuture.received唤醒对应阻塞的Request  
 DubboProtocol.requestHandler->invoker  这边理论上也有可能 但是很少用到 服务端回调消费者接口    
 
-##### out Request/HeartBeat
+##### out Request
 write事件调用链
 
 NettyClientHandler  会调用NettyClientHandler中handler的sent方法  
@@ -86,7 +86,7 @@ DubboProtocol.requestHandler 无逻辑
 
 #### server 
 
-##### in Request/HeartBeat
+##### in Request/HeartBeat/telnet
 channelRead事件调用链 会调用内部handler的received方法 
 
 下面同client的in
@@ -103,7 +103,7 @@ HeaderExchangeHandler->handleRequest/telnet
 DubboProtocol.requestHandler->invoker    
 
 
-##### out Response/HeartBeat
+##### out Response
 write事件调用链  
 
 NettyServerHandler 会调用NettyClientHandler中handler的sent方法
