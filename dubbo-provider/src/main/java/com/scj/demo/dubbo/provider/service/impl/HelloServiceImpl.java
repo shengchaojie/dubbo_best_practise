@@ -1,15 +1,19 @@
 package com.scj.demo.dubbo.provider.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import com.scj.demo.dubbo.api.HelloService;
 import com.scj.demo.dubbo.api.Result;
+import org.springframework.util.CollectionUtils;
 
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-public class HelloServiceImpl implements HelloService {
+public class HelloServiceImpl implements HelloService,ByeService,GenericReturnValueService {
 
     Executor executor = Executors.newCachedThreadPool();
 
@@ -56,5 +60,98 @@ public class HelloServiceImpl implements HelloService {
             }
             return Result.ofSuccess(Lists.newArrayList("scj","123","356"));
         },executor);
+    }
+
+    @Override
+    public String helloWorld(String name) {
+        return "hello,world" + name;
+    }
+
+    @Override
+    public String bye(String name) {
+        return "bye"+ name;
+    }
+
+    @Override
+    public String bye(String name, Long age, Date date) {
+        return "hello"+name+age+date;
+    }
+
+    @Override
+    public String bye(Person person) {
+        return "hello"+person;
+    }
+
+    @Override
+    public String bye(Map<String, Object> person) {
+        return "hello" + JSON.toJSONString(person);
+    }
+
+    @Override
+    public String bye(List<String> names) {
+        return "hello" + Joiner.on(",").join(names);
+    }
+
+    @Override
+    public String bye(String[] names) {
+        return "hello" + Arrays.toString(names);
+    }
+
+    @Override
+    public String byePersons(List<Person> persons) {
+        return "hello" + Joiner.on(",").join(persons);
+    }
+
+    @Override
+    public String byePersons(Person[] persons) {
+        return "hello" + Arrays.toString(persons);
+    }
+
+    @Override
+    public String returnString() {
+        return "scj";
+    }
+
+    @Override
+    public Long returnLong() {
+        return 12L;
+    }
+
+    @Override
+    public long returnPrimitiveLong() {
+        return 12;
+    }
+
+    @Override
+    public List<String> returnListString() {
+        return Lists.newArrayList("123","456");
+    }
+
+    @Override
+    public String[] returnArrayString() {
+        return new String[]{"jus","t"};
+    }
+
+    @Override
+    public Set<String> returnSetString() {
+        return Sets.newHashSet("1","5","555");
+    }
+
+    @Override
+    public Person returnPojo() {
+        Person person = new Person();
+        person.setAge(111L);
+        person.setBirth(new Date());
+        person.setName("scj111");
+        return person;
+    }
+
+    @Override
+    public List<Person> returnListPerson() {
+        Person person = new Person();
+        person.setAge(111L);
+        person.setBirth(new Date());
+        person.setName("scj111");
+        return Lists.newArrayList(person,person,person);
     }
 }

@@ -14,5 +14,7 @@ public interface HelloService {
     Result<List<String>> testPage1(Integer page, Integer pageSize);
 
     CompletableFuture<Result<List<String>>> testPage2(Integer page, Integer pageSize);
+
+    String helloWorld(String name);
 }
 
