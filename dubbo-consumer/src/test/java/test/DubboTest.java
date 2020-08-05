@@ -23,8 +23,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-//@RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(locations={"classpath:consumer.xml"})
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations={"classpath:consumer.xml"})
 public class DubboTest {
 
     @Autowired
@@ -40,7 +40,7 @@ public class DubboTest {
 
     @Test
     public void testNormal(){
-        helloService.hello("123");
+        System.out.println(helloService.helloWorld("123"));
     }
 
     /**

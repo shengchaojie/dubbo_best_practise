@@ -11,21 +11,8 @@
 
     <dubbo:protocol name="dubbo" port="23333"/>
 
-    <bean id ="helloService" class="com.scj.demo.dubbo.provider.service.impl.HelloServiceImpl" />
-
-
-    <dubbo:service  interface="com.scj.demo.dubbo.api.HelloService" ref="helloService"  weight="100" >
-        <dubbo:parameter key="warmup" value="100" />
-    </dubbo:service>
-
-    <dubbo:service  interface="com.scj.demo.dubbo.provider.service.impl.ByeService" ref="helloService"  weight="100" >
-    </dubbo:service>
-
-    <dubbo:service  interface="com.scj.demo.dubbo.provider.service.impl.GenericReturnValueService" ref="helloService"  weight="100" >
-    </dubbo:service>
-
     <bean id="genericService" class="com.scj.demo.dubbo.provider.service.impl.GenericServiceImpl" />
 
-    <dubbo:service interface="com.scj.custom.DemoService" ref="genericService" />
+    <dubbo:service interface="com.scj.demo.dubbo.api.HelloService" ref="genericService" />
 
 </beans>

@@ -5,13 +5,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo
     					http://souche.oss-cn-hangzhou.aliyuncs.com/files/dubbo/dubbo.xsd">
 
-<dubbo:application name="test-consumer" />
+    <dubbo:application name="test-consumer" />
 
     <dubbo:registry address="zookeeper://127.0.0.1:2181" />
 
     <dubbo:reference id="helloService" interface="com.scj.demo.dubbo.api.HelloService" timeout="10000">
-        <dubbo:method name="hello" loadbalance="roundrobin" />
     </dubbo:reference>
 
-    <dubbo:reference id="registryService" interface="org.apache.dubbo.registry.RegistryService"/>
 </beans>
